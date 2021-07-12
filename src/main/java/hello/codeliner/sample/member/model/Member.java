@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @JsonIgnoreProperties({"password"})
-public class Member {
+public class Member extends RepresentationModel<Member> {
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;

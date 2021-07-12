@@ -30,6 +30,8 @@ dependencies {
 
 	// xml
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.3'
+	// hateoas
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 }
 
 test {

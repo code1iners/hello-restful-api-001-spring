@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +44,16 @@ public class MemberController {
         if (foundMember == null) {
             throw new MemberNotFoundException();
         }
+        
+        Member retrieve = WebMvcLinkBuilder.methodOn(MemberController.class).retrieve(id);
+        Link self = WebMvcLinkBuilder.linkTo(retrieve).withSelfRel();
+
+        Member delete = WebMvcLinkBuilder.methodOn(MemberController.class).delete(id);
+        Link withSelfRel = WebMvcLinkBuilder.linkTo(delete).withRel("Self or Delete");
+
+        foundMember.add(self);
+        foundMember.add(withSelfRel);
+
         return foundMember;
     }
 
