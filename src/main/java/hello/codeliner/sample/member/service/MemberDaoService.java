@@ -21,9 +21,9 @@ public class MemberDaoService {
     private static List<Member> members = new ArrayList<>();
 
     static {
-        members.add(Member.create((long) members.size() + 1, "member1"));
-        members.add(Member.create((long) members.size() + 1, "member2"));
-        members.add(Member.create((long) members.size() + 1, "member3"));
+        members.add(Member.create((long) members.size() + 1, "member1", "password1"));
+        members.add(Member.create((long) members.size() + 1, "member2", "password2"));
+        members.add(Member.create((long) members.size() + 1, "member3", "password3"));
     }
 
     public List<Member> findAll() {
