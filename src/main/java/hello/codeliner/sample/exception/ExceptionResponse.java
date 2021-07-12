@@ -15,8 +15,8 @@ public class ExceptionResponse {
 
     public static ExceptionResponse create(String message, String details) {
         ExceptionResponse ex = new ExceptionResponse();
-        ex.message = message;
-        ex.details = details;
+        ex.setMessage(message);
+        ex.setDetails(details);
         return ex;
     }
 }

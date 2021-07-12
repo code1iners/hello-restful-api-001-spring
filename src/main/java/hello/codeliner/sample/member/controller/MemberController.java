@@ -3,6 +3,8 @@ package hello.codeliner.sample.member.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +45,7 @@ public class MemberController {
     }
 
     @PostMapping(path = "")
-    public ResponseEntity<Member> create(@RequestBody Member member) {
+    public ResponseEntity<Member> create(@Valid @RequestBody Member member) {
         Member savedMember = memberDaoService.save(member);
         URI location = ServletUriComponentsBuilder
             .fromCurrentRequest()
